@@ -1,0 +1,8 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+     - "32271:32271"
+  redis:
+    image: "postgres:latest"
