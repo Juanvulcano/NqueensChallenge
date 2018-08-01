@@ -1,8 +1,10 @@
 version: '3'
 services:
-  web:
-    build: .
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass
     ports:
-     - "32271:32271"
-  redis:
-    image: "postgres:latest"
+      - "5432:5432"
+    restart: unless-stopped
