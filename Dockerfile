@@ -13,5 +13,8 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 # Define environment variable
 ENV NAME env
 
-# Run app.py when the container launches
-CMD ["python", "onefile.py"]
+# Run generatequeens.py when the container launches
+EXPOSE 32771
+CMD ["createdb", "-h", "localhost", "-p", "32771", "-U", "postgres", "nqueen"]
+CMD ["psql", "-h", "localhost" , "-p", "32771", "-U", "postgres", "nqueen"]
+CMD ["python", "generatequeens.py"]
